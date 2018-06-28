@@ -1,0 +1,21 @@
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2"
+  type="text" placeholder="Buscar artista"
+  aria-label="Search"
+  (keyup)="findArtist(searchParam)"
+  [ngModelOptions]="{standalone: true}"
+  [(ngModel)]="searchParam">
+
+
+  <button (click)="findArtist(searchParam)" class="btn btn-outline-success my-2 my-sm-0"
+  type="submit">Buscar</button>
+</form>
+<hr>
+
+<div class="row">
+<div [routerLink]="['/artist',artist.id]"
+*ngFor="let artist of _spotify.arrayArtist"
+class="col-md-4 text-center puntero" >
+<img [src]="artist.images | imageValidator" [alt]="artist.name" class="img-thumbnail">
+</div>
+</div>

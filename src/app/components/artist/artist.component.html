@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+      <div  class="col-m-4 text-left">
+        <img [src]="artistInfo.images | imageValidator" [alt]="artistInfo.name" class="img-rounded">
+      </div>
+      <div class="col-md-8" text-center>
+           <h3>Nombre:&nbsp;<strong style="font-size:18px">{{artistInfo.name}}</strong></h3>
+           <span>Genero:</span>&nbsp;<strong>{{artistInfo.genres}}</strong><br>
+           <span>Número de vistas:</span>&nbsp;<strong>{{artistInfo.followers.total}}</strong><br>
+           <span>Popularidad:</span>&nbsp;<strong>{{artistInfo.popularity}}%</strong><br>
+           <br>
+           <a target="_blank"
+            [href]="artistInfo.href"
+           class="btn btn-primary btn-lg btn-success">Visitar el perfil</a>
+      </div>
+  </div>
+  <hr>
+  <h1>Top 10 canciones</h1>
+<div *ngFor="let track of _spotify.arrayTop" style="margin-top:20px">
+  <div class="row">
+    <div class="col-lg-20 text-right">
+      <br>
+      <div class="col-md-8">
+      <img width="180" [src]="track.album.images | imageValidator" [alt]="track.name" class="img-thumbnail">
+      </div>
+    </div>
+    <div class="col-md-8" text-center>
+         <h3>Nombre:&nbsp;<strong style="font-size:18px">{{track.name}}</strong></h3>
+         <span>Popularidad:</span>&nbsp;<strong>{{track.popularity}}%</strong><br>
+
+         <br>
+         <a [href]="track.preview_url" target="_blank"
+
+         class="btn btn-primary btn-lg btn-success">Visitar La canción</a>
+    </div>
+
+  </div>
+<hr>
+</div>
+</div>
